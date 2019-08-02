@@ -13,22 +13,36 @@ import java.util.Scanner;
  * @author informatica
  */
 public class Juego {
-    
+
     public static void main(String[] args) {
-        
-        System.out.println("Dame un numero entre 1 y 20");
+        int numero;
+        int numeroAleatorio;
         Scanner teclado = new Scanner(System.in);
-        int numero = Integer.parseInt(teclado.nextLine());
-        
         Random r = new Random();
-        int numeroAleatorio =r.nextInt(20)+1;
         
-        if (numero == numeroAleatorio) {
-            System.out.println("Ganaste con el " +numero);
+        int contador = 0;
+
+        do {
+            System.out.println("Dame un numero entre 1 y 20");
             
-        }
-        else{
-            System.out.println("Pailas el numero era"+ numeroAleatorio + "y no" + numero);
-        }
+            numero = Integer.parseInt(teclado.nextLine());
+
+            
+            numeroAleatorio = r.nextInt(20) + 1;
+
+            if (numero == numeroAleatorio) {
+                System.out.println("Ganaste con el " + numero);
+
+            } else {
+                System.out.println("Pailas el numero era" + numeroAleatorio + " y no" + numero);
+            }
+            
+            contador++;
+        }while(numero != numeroAleatorio);
+        
+        System.out.println("Ganaste despues de "+contador+" intentos");
+        
+        
+    
     }
 }
